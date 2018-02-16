@@ -160,9 +160,9 @@ def pytest_unconfigure(config):
             print("--parsing junit report...")
             log_dir = os.environ.get('LOG_DEST_DIR', 'artifacts')
             pwd = os.path.dirname(os.path.realpath(__file__))
-            parser = os.path.join(pwd, 'utils/junit_result_parser.py')
+            parser = os.path.join(pwd, 'Utils/junit_result_parser.py')
             cmd = "%s %s" % (parser, log_dir)
-            out = putil.run_subprocess(cmd)
+            (res,out) = putil.run_subprocess(cmd)
             print(out)
         config.add_cleanup(junit_to_html)
 
