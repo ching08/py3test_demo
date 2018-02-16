@@ -134,40 +134,11 @@ def run_subprocess(cmd,stderr=False,verbose=True):
         output += err.decode("utf-8").strip()
 
     if verbose:
-        print(output)
+        print("\n"+output)
   
     # print does not show in gitalb console
     #print("\n"+output)
     return (res,output)
-
-
-# def run_subprocess(command, realTime=True):
-#     '''
-#     examples:
-#     http://stackoverflow.com/questions/1606795/catching-stdout-in-realtime-from-subprocess
-#     putil.subprocess('ps ax')
-#     output=putil.run_subprocess('ps ax',readTime=False)
-
-
-
-#     '''
-#     logger.info("run_subprocess: (%s)" % command)
-#     cmdList = command.split()
-#     p = subprocess.Popen(cmdList,
-#                          stdout=subprocess.PIPE,
-#                          stderr=subprocess.STDOUT
-#                          )
-#     if realTime:
-#         output = ""
-#         for line in iter(p.stdout.readline, b''):
-#             #this line needed for python3
-#             line=line.decode("utf-8")
-#             logger.info(line.rstrip())
-#             output += line
-#         return output
-#     else:
-#         output = p.stdout.readlines()
-#         return "".join(output)
 
 
 
