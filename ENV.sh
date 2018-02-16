@@ -25,7 +25,9 @@ if [  ! -d $virtual_folder ]; then
     echo "creating virtual env folder $virtual_folder"
     virtualenv --always-copy --python=python3 $virtual_folder
     . $virtual_folder/bin/activate
-    pip install -r ${WORK_HOME}/requirements.txt
+    if [ -f ${WORK_HOME}/requirements.txt ] ; then
+	pip install -r ${WORK_HOME}/requirements.txt
+    fi
     popd
 else
     . $virtual_folder/bin/activate
